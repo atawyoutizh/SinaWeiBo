@@ -13,9 +13,10 @@ class HomeTableViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        visitorView?.setupInfo(nil, message: "关注一些人，会这里看看有什么惊喜")
         
         
-        vistorLoginView?.setupInfo(imageName: "visitordiscover_feed_image_smallicon", tipText: "关注一些人，回这里看看有什么惊喜", isHome: true)
+//        vistorLoginView?.setupInfo(imageName: "visitordiscover_feed_image_smallicon", tipText: "关注一些人，回这里看看有什么惊喜", isHome: true)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

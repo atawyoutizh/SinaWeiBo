@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6FDDA21BC79FB8009EA744 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FDDA11BC79FB8009EA744 /* Common.swift */; settings = {ASSET_TAGS = (); }; };
+		4D6FDDA81BC7D307009EA744 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FDDA71BC7D307009EA744 /* OAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4D6FDDD41BC7D7C4009EA744 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FDDD31BC7D7C4009EA744 /* NetworkTools.swift */; settings = {ASSET_TAGS = (); }; };
 		4D93D6441BC35DDF0061F80D /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93D6431BC35DDF0061F80D /* BaseTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		4D93D6471BC3601D0061F80D /* VistorLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D93D6461BC3601D0061F80D /* VistorLoginView.xib */; settings = {ASSET_TAGS = (); }; };
-		4D93D6491BC36AED0061F80D /* VistorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93D6481BC36AED0061F80D /* VistorLoginView.swift */; settings = {ASSET_TAGS = (); }; };
+		4DAA32E61BC76D3200FEDDB4 /* VisitorLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA32E51BC76D3200FEDDB4 /* VisitorLoginView.swift */; settings = {ASSET_TAGS = (); }; };
 		4DCA98081BC2B6A000DD29ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA98071BC2B6A000DD29ED /* AppDelegate.swift */; };
 		4DCA98101BC2B6A000DD29ED /* SinaWeiBoProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA980E1BC2B6A000DD29ED /* SinaWeiBoProject.xcdatamodeld */; };
 		4DCA98121BC2B6A000DD29ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA98111BC2B6A000DD29ED /* Assets.xcassets */; };
@@ -17,7 +19,6 @@
 		4DCA98201BC2B6A000DD29ED /* SinaWeiBoProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA981F1BC2B6A000DD29ED /* SinaWeiBoProjectTests.swift */; };
 		4DCA982B1BC2B6A000DD29ED /* SinaWeiBoProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA982A1BC2B6A000DD29ED /* SinaWeiBoProjectUITests.swift */; };
 		4DCA98491BC2C3BB00DD29ED /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA98481BC2C3BB00DD29ED /* MainTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
-		4DCA984B1BC2C3C200DD29ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA984A1BC2C3C200DD29ED /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		4DCA984D1BC2C3DB00DD29ED /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA984C1BC2C3DB00DD29ED /* Discover.storyboard */; settings = {ASSET_TAGS = (); }; };
 		4DCA984F1BC2C40B00DD29ED /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA984E1BC2C40B00DD29ED /* DiscoverTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4DCA98511BC2C42500DD29ED /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA98501BC2C42500DD29ED /* HomeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -27,6 +28,7 @@
 		4DCA98591BC2C46000DD29ED /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA98581BC2C46000DD29ED /* ProfileTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4DCA985B1BC2C46900DD29ED /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA985A1BC2C46900DD29ED /* Profile.storyboard */; settings = {ASSET_TAGS = (); }; };
 		4DCA985D1BC2CAE200DD29ED /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA985C1BC2CAE200DD29ED /* MainTabBar.swift */; settings = {ASSET_TAGS = (); }; };
+		FD52BFD2DAEA00FA978E20BA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0294AFB76E1D7A9A65DF8D16 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +49,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0294AFB76E1D7A9A65DF8D16 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49293EE0E3774753842CF04C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4D6FDDA11BC79FB8009EA744 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		4D6FDDA71BC7D307009EA744 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		4D6FDDD31BC7D7C4009EA744 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		4D93D6431BC35DDF0061F80D /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
-		4D93D6461BC3601D0061F80D /* VistorLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VistorLoginView.xib; sourceTree = "<group>"; };
-		4D93D6481BC36AED0061F80D /* VistorLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VistorLoginView.swift; sourceTree = "<group>"; };
+		4DAA32E51BC76D3200FEDDB4 /* VisitorLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorLoginView.swift; sourceTree = "<group>"; };
 		4DCA98041BC2B6A000DD29ED /* SinaWeiBoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaWeiBoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCA98071BC2B6A000DD29ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DCA980F1BC2B6A000DD29ED /* SinaWeiBoProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SinaWeiBoProject.xcdatamodel; sourceTree = "<group>"; };
@@ -63,7 +69,6 @@
 		4DCA982A1BC2B6A000DD29ED /* SinaWeiBoProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinaWeiBoProjectUITests.swift; sourceTree = "<group>"; };
 		4DCA982C1BC2B6A000DD29ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DCA98481BC2C3BB00DD29ED /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		4DCA984A1BC2C3C200DD29ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4DCA984C1BC2C3DB00DD29ED /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		4DCA984E1BC2C40B00DD29ED /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		4DCA98501BC2C42500DD29ED /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 		4DCA98581BC2C46000DD29ED /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4DCA985A1BC2C46900DD29ED /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4DCA985C1BC2CAE200DD29ED /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		D065F32AD54749777CC17D25 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD52BFD2DAEA00FA978E20BA /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,13 +107,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4D93D6451BC35F260061F80D /* VistorLoginView */ = {
+		181C09AD20FD7ADE13955891 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4D93D6461BC3601D0061F80D /* VistorLoginView.xib */,
-				4D93D6481BC36AED0061F80D /* VistorLoginView.swift */,
+				0294AFB76E1D7A9A65DF8D16 /* Pods.framework */,
 			);
-			path = VistorLoginView;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D6FDDA61BC7D2F9009EA744 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				4D6FDDA71BC7D307009EA744 /* OAuthViewController.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		4D6FDDC11BC7D779009EA744 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4D6FDDD31BC7D7C4009EA744 /* NetworkTools.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4D6FDDD21BC7D7A0009EA744 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4DCA97FB1BC2B6A000DD29ED = {
@@ -116,6 +145,8 @@
 				4DCA981E1BC2B6A000DD29ED /* SinaWeiBoProjectTests */,
 				4DCA98291BC2B6A000DD29ED /* SinaWeiBoProjectUITests */,
 				4DCA98051BC2B6A000DD29ED /* Products */,
+				63C5144A6C2AF2B4E7360687 /* Pods */,
+				181C09AD20FD7ADE13955891 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +165,7 @@
 			children = (
 				4DCA983F1BC2C39E00DD29ED /* Classes */,
 				4DCA98071BC2B6A000DD29ED /* AppDelegate.swift */,
+				4D6FDDA11BC79FB8009EA744 /* Common.swift */,
 				4DCA98111BC2B6A000DD29ED /* Assets.xcassets */,
 				4DCA98131BC2B6A000DD29ED /* LaunchScreen.storyboard */,
 				4DCA98161BC2B6A000DD29ED /* Info.plist */,
@@ -163,23 +195,17 @@
 		4DCA983F1BC2C39E00DD29ED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4DCA98401BC2C39E00DD29ED /* Model */,
+				4D6FDDD21BC7D7A0009EA744 /* Model */,
+				4D6FDDC11BC7D779009EA744 /* Tools */,
 				4DCA98411BC2C39E00DD29ED /* Module */,
-				4DCA98471BC2C39E00DD29ED /* Tools */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		4DCA98401BC2C39E00DD29ED /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4DCA98411BC2C39E00DD29ED /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				4D6FDDA61BC7D2F9009EA744 /* OAuth */,
 				4DCA98441BC2C39E00DD29ED /* Main */,
 				4DCA98431BC2C39E00DD29ED /* Home */,
 				4DCA98451BC2C39E00DD29ED /* Message */,
@@ -210,11 +236,10 @@
 		4DCA98441BC2C39E00DD29ED /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4D93D6451BC35F260061F80D /* VistorLoginView */,
 				4DCA98481BC2C3BB00DD29ED /* MainTabBarController.swift */,
 				4DCA985C1BC2CAE200DD29ED /* MainTabBar.swift */,
-				4DCA984A1BC2C3C200DD29ED /* Main.storyboard */,
 				4D93D6431BC35DDF0061F80D /* BaseTableViewController.swift */,
+				4DAA32E51BC76D3200FEDDB4 /* VisitorLoginView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -237,11 +262,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		4DCA98471BC2C39E00DD29ED /* Tools */ = {
+		63C5144A6C2AF2B4E7360687 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				49293EE0E3774753842CF04C /* Pods.debug.xcconfig */,
+				D065F32AD54749777CC17D25 /* Pods.release.xcconfig */,
 			);
-			path = Tools;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,9 +278,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DCA982F1BC2B6A000DD29ED /* Build configuration list for PBXNativeTarget "SinaWeiBoProject" */;
 			buildPhases = (
+				1FF8D3AAC3EE71626BADF27C /* Check Pods Manifest.lock */,
 				4DCA98001BC2B6A000DD29ED /* Sources */,
 				4DCA98011BC2B6A000DD29ED /* Frameworks */,
 				4DCA98021BC2B6A000DD29ED /* Resources */,
+				A668FEA478322CF14ACFED4C /* Embed Pods Frameworks */,
+				DB131C0CE3434A734DE4FF13 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -352,9 +382,7 @@
 				4DCA985B1BC2C46900DD29ED /* Profile.storyboard in Resources */,
 				4DCA984D1BC2C3DB00DD29ED /* Discover.storyboard in Resources */,
 				4DCA98531BC2C43C00DD29ED /* Home.storyboard in Resources */,
-				4DCA984B1BC2C3C200DD29ED /* Main.storyboard in Resources */,
 				4DCA98551BC2C44700DD29ED /* Message.storyboard in Resources */,
-				4D93D6471BC3601D0061F80D /* VistorLoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +402,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1FF8D3AAC3EE71626BADF27C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A668FEA478322CF14ACFED4C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB131C0CE3434A734DE4FF13 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4DCA98001BC2B6A000DD29ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -382,12 +458,15 @@
 				4D93D6441BC35DDF0061F80D /* BaseTableViewController.swift in Sources */,
 				4DCA98511BC2C42500DD29ED /* HomeTableViewController.swift in Sources */,
 				4DCA98101BC2B6A000DD29ED /* SinaWeiBoProject.xcdatamodeld in Sources */,
+				4DAA32E61BC76D3200FEDDB4 /* VisitorLoginView.swift in Sources */,
+				4D6FDDA81BC7D307009EA744 /* OAuthViewController.swift in Sources */,
+				4D6FDDA21BC79FB8009EA744 /* Common.swift in Sources */,
 				4DCA98491BC2C3BB00DD29ED /* MainTabBarController.swift in Sources */,
 				4DCA984F1BC2C40B00DD29ED /* DiscoverTableViewController.swift in Sources */,
-				4D93D6491BC36AED0061F80D /* VistorLoginView.swift in Sources */,
 				4DCA985D1BC2CAE200DD29ED /* MainTabBar.swift in Sources */,
 				4DCA98081BC2B6A000DD29ED /* AppDelegate.swift in Sources */,
 				4DCA98591BC2C46000DD29ED /* ProfileTableViewController.swift in Sources */,
+				4D6FDDD41BC7D7C4009EA744 /* NetworkTools.swift in Sources */,
 				4DCA98571BC2C45100DD29ED /* MessageTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,8 +597,10 @@
 		};
 		4DCA98301BC2B6A000DD29ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49293EE0E3774753842CF04C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				INFOPLIST_FILE = SinaWeiBoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.apple.SinaWeiBoProject;
@@ -529,8 +610,10 @@
 		};
 		4DCA98311BC2B6A000DD29ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D065F32AD54749777CC17D25 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				INFOPLIST_FILE = SinaWeiBoProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.apple.SinaWeiBoProject;
