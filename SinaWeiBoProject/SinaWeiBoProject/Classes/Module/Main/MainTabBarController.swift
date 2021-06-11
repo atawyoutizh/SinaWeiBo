@@ -40,9 +40,7 @@ class MainTabBarController: UITabBarController {
     // 不适合做多vezhiixng的代码
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        print(tabBar.subviews)
-        
+                
         setupComposeButton()
     }
     

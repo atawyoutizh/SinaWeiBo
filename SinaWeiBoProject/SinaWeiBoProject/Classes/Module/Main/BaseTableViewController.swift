@@ -4,15 +4,14 @@
 //
 //  Created by 房城鸿 on 15/10/6.
 //  Copyright © 2015年 房兰峰. All rights reserved.
-//
 
 import UIKit
 
 class BaseTableViewController: UITableViewController {
     
-    
     //用户登录标记
-    var userLogin = false
+    var userLogin = UserAccountViewModel.sharedUserAccount.userLogin
+//    var userLogin = false
     
     //用户登陆视图 - 每个控制器各自拥有自己的 visitorView
     // 提示：如果使用懒加载，会在用户登陆成功之后，视图仍然被创建，虽然不会影响程序执行，但是会消耗内存
@@ -25,10 +24,16 @@ class BaseTableViewController: UITableViewController {
     */
     override func loadView() {
         
-//        super.loadView()
         userLogin ? super.loadView() : setupVistorView()
     }
     
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+
+        
+    }
     
     /**
     设置访客视图
@@ -39,8 +44,6 @@ class BaseTableViewController: UITableViewController {
         
         //替换视图
         view = visitorView
-        
-//        view.backgroundColor = UIColor.orangeColor()
         
         //设置导航栏
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: "VisitorLoginViewWillRigester")
@@ -53,22 +56,15 @@ class BaseTableViewController: UITableViewController {
     
     //MARK: - VisitorLoginViewDelegate
     
-    func VisitorLoginViewWillRigester() {
+    @objc private func VisitorLoginViewWillRigester() {
         print("注册")
     }
-    func VisitorLoginViewWillLogin() {
+    @objc private func VisitorLoginViewWillLogin() {
        
         let nav = UINavigationController(rootViewController: OAuthViewController())
         presentViewController(nav, animated:true, completion: nil)
-        
     }
     
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-    
-//    var vistorLoginView:VistorLoginView?
     
     
     //是专门为手写代码准备的，一旦实现此方法，所有的xib/sb 都会失效
@@ -77,7 +73,6 @@ class BaseTableViewController: UITableViewController {
     
     /*
     override func loadView() {
-        
         
         vistorLoginView = NSBundle.mainBundle().loadNibNamed("VistorLoginView", owner: nil, options: nil).last as? VistorLoginView
         
@@ -95,8 +90,6 @@ class BaseTableViewController: UITableViewController {
         // appearance.tintColor 相当于将颜色作为全局文件存储，
         // 修改它，一定要趁早设置，否则完了
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
-        
-        
     }
 */
     

@@ -7,94 +7,82 @@
 //
 
 import UIKit
+import SVProgressHUD
+
+private let HMHomeViewCell = "HMHomeViewCell"
 
 class HomeTableViewController: BaseTableViewController {
-
+    
+    private var statusListViewModel = StatusListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        visitorView?.setupInfo(nil, message: "关注一些人，会这里看看有什么惊喜")
+        if !UserAccountViewModel.sharedUserAccount.userLogin{
+            visitorView?.setupInfo(nil, message: "关注一些人，会这里看看有什么惊喜")
+            return
+        }
+        
+        loadData()
+        self.tableView.registerClass(StatusCell.self, forCellReuseIdentifier: HMHomeViewCell)
+    
+    
+        // 以下两句就可以自动处理行高 ，条件:
+        
+        // 提示，如果不是呀 自动计算行高 UITableViewAutomaticDimension  一定不要设置底部约束
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = 300
         
         
-//        vistorLoginView?.setupInfo(imageName: "visitordiscover_feed_image_smallicon", tipText: "关注一些人，回这里看看有什么惊喜", isHome: true)
+        //取消分割线
+        tableView.separatorStyle  = UITableViewCellSeparatorStyle.None
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //加载数据
+    func loadData(){
+        statusListViewModel.loadStatus().subscribeError({ (error) -> Void in
+            SVProgressHUD.showInfoWithStatus("您的网络不给力")
+            }) { () -> Void in
+                // 刷新表格
+                self.tableView.reloadData()
+        }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.statusListViewModel.status.count ?? 0
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        /*
+        1.
+        dequeueReusableCellWithIdentifier: indexpath --一定会返回一个cell,必须注册可重用cell
+         注册: registerClass/registerNib(XIB) 在SB 中制定
+        如果缓冲区cell  不存在，会使用原型cell 实例化一个新的cell 
+        2.
+        dequeueReusableCellWithIdentifier  ,会查询可重用cell ,如果注册 原型cell  ,能够查询到，否则，返回 nil 
+        需要后续判断 if (cell == nil) .是在 ios 5.0 开发使用的
+        */
+       let cell = tableView.dequeueReusableCellWithIdentifier(HMHomeViewCell, forIndexPath: indexPath) as! StatusCell
 
-        // Configure the cell...
-
-        return cell
+        //获取微博数据
+        let statusViewModel = statusListViewModel.status[indexPath.item] as! StatusViewModel
+        
+        cell.statusViewModel = statusViewModel
+        return cell;
     }
-    */
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+// 类似于 OC 的匪类，同时可以将遵守的协议方法大，分离出来
+extension HomeTableViewController{
 
 }
+
+
+
+
+
+
+
+
+

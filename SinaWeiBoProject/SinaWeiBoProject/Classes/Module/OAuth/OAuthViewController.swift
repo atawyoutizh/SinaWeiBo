@@ -7,6 +7,12 @@
 
 import UIKit
 
+//import <SVProgressHUD/SVProgressHUD.h>
+
+import SVProgressHUD
+import ReactiveCocoa
+
+
 /// OAuth 授权控制器
 class OAuthViewController: UIViewController ,UIWebViewDelegate{
 
@@ -27,9 +33,11 @@ class OAuthViewController: UIViewController ,UIWebViewDelegate{
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         webView.loadRequest(NSURLRequest(URL: NetworkTools.sharedTools.oauthUrl))
     }
     @objc private func close(){
+        SVProgressHUD.dismiss()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -48,17 +56,67 @@ class OAuthViewController: UIViewController ,UIWebViewDelegate{
         if !urlString.hasPrefix(NetworkTools.sharedTools.redirectUri) {
             return true
         }
-        print(urlString)
+//        printLog(urlString)
         //2.如果是回调地址，检查query ，查询字符串，判断是否包含 "code="
         
         if let query = request.URL!.query  where query.hasPrefix("code="){
-            print("query")
+            
+            let code = query.substringFromIndex("code=".endIndex)
+            
+//            printLog("code = \(code)")
+
+            //4.调用网络方法，获取token  
+//            NetworkTools.sharedTools.loadAccessToken(code).subscribeNext({ (result) -> Void in
+//                
+//                //创建永华模型  as! 将一个对象视为什么类型  ！？ 取决于参数的需要 
+//                let account = UserAccount(dict: result as! [String:AnyObject])
+//                
+//                self.loadUserInfo(account)
+////                printLog(account)
+//                }, error: { (error) -> Void in
+//                    printLog(error)
+//            })
+            
+            
+            UserAccountViewModel.sharedUserAccount.loadUserAccount(code).subscribeError({ (error) -> Void in
+                print(error)
+                }, completed: { () -> Void in
+                    printLog("登陆完成")
+                    
+                    
+                    //关闭控制器
+                    SVProgressHUD.dismiss()
+                    self.dismissViewControllerAnimated(false, completion: { () -> Void in
+                        
+                        //利用通知，通知AppDelegate 要更改控制器
+                        NSNotificationCenter.defaultCenter().postNotificationName(HMSwitchRootViewControllerNotification, object: "Main")
+                        
+                    })
+                    
+
+            })
+            
+            UserAccountViewModel.sharedUserAccount.loadUserAccount(code).subscribeNext({ (result) -> Void in
+                
+                }, error: { (error) -> Void in
+                    
+                }, completed: { () -> Void in
+                    
+            })
+            
         }else{
-            print("取消")
+            printLog("取消")
         }
         //3.如果有，获取code
-        
         return true
     }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    func webViewDidFinishLoad(webView: UIWebView) {
+        SVProgressHUD.dismiss()
+    }
+    
     
 }
