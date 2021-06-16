@@ -48,12 +48,15 @@ class Status: NSObject {
     /// 配图URL 字符串的数组
     var pic_urls: [[String:String]]?
     
-    
     ///  用户
     var user:User?
     
     
-    
+    /// 如果是原创有图，在 pic_url 数组宏记录
+    /// 如果是“转发微博” 有图，在 retweeted_status.pic_url 数组中记录
+    /// 如果"转发微博" 有图，pic_url 数组中没有图 
+    /// 被转发的原创微博对象
+    var retweeted_status:Status?
     
     
     //MARK: - 构造函数
@@ -73,6 +76,13 @@ class Status: NSObject {
             user = User(dict: value as! [String:AnyObject])
             return
         }
+        
+        //2. 判断 key 是否是 retweeted_status
+        if key == "retweeted_status" {
+        
+            retweeted_status = Status(dict: value as! [String:AnyObject])
+            return
+        }
         // 这里一定要注意：一定要调用父类的 suoer 否则会 在key == 处报错
         super.setValue(value, forKey: key)
     }
@@ -81,7 +91,7 @@ class Status: NSObject {
     
     
     override var description: String {
-        let keys = ["created_at","id","text","source","user","pic_urls"]
+        let keys = ["created_at","id","text","source","user","pic_urls","retweeted_status"]
         return dictionaryWithValuesForKeys(keys).description        
     }
     

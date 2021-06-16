@@ -25,21 +25,28 @@ let HMStatusPictureMaxCount:CGFloat = 3
 //配图视图的最大尺寸
 let HMStatusPictureMaxWith = HMStatusPictureMaxCount * HMStatusPictureItemWith + (HMStatusPictureMaxCount-1) * HMStatusPictureItemMargin
 
-
-
 class StatusCell: UITableViewCell {
-
 
     //微博数据 视图模型
     var statusViewModel:StatusViewModel?{
+        
         didSet{
             //模型数值被设置之后，马上要产生的连锁反应 - 界面UI发生变化
             topView.statusViewModel = statusViewModel
             contentLabel.text = statusViewModel?.status.text
             
-            // 提示：在自动布局系统中，随机修改表格越苏，使用自动计算行高 很容易出问题
-            // 通过测试，提前确定方法的可行性
-            pictureViewHeighthCons?.constant = HMStatusPictureItemWith * CGFloat(random() % 4)
+            statusPicture.statusViewModel = statusViewModel
+            
+//            // 提示：在自动布局系统中，随机修改表格越苏，使用自动计算行高 很容易出问题
+//            // 通过测试，提前确定方法的可行性
+//            pictureViewHeighthCons?.constant = HMStatusPictureItemWith * CGFloat(random() % 4)
+            
+            // 设置配图视图 --》内部 sizeToFit 计算出大小
+            pictureViewWidthCons?.constant = statusPicture.bounds.width
+            pictureViewHeighthCons?.constant = statusPicture.bounds.height
+            
+            // 根据是否包含图片，决定 顶部约束
+            pictureViewTopCons?.constant = statusViewModel?.thumbnailURLs?.count == 0 ? 0 : HMStatusCellMargin
         }
     }
     // 宽度约束
@@ -47,6 +54,28 @@ class StatusCell: UITableViewCell {
     // 高度约束
     var pictureViewHeighthCons:NSLayoutConstraint?
     
+    //顶部约束
+    var pictureViewTopCons:NSLayoutConstraint?
+    
+    ///  计算行高
+    ///  - parameter viewModel: viewModel
+    ///
+    ///  - returns: 返回行高
+    func rowHeight(viewModel:StatusViewModel) ->CGFloat{
+        
+        printLog("计算行高")
+    
+        //1.设置 视图模型 - 会调用 模型的 didSet 
+        statusViewModel = viewModel
+        
+        // 有了内容之后更新 约束
+        layoutIfNeeded()
+        
+        // 3. 返回底部视图的最大高度 
+        return CGRectGetMaxY(bottomView.frame)
+    }
+    
+    //MARK: - 搭建界面
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -58,7 +87,7 @@ class StatusCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI(){
+    func setupUI(){
         
 //        backgroundColor = UIColor.redColor()
         // 顶部视图
@@ -80,14 +109,13 @@ class StatusCell: UITableViewCell {
         topView.ff_AlignVertical(type: ff_AlignType.BottomLeft, referView: topSepView, size: CGSize(width: with, height: HMStatusCellMargin + HMStatusIocnWith), offset:CGPoint(x: 0, y: 10))
         //3. 文本标签
         contentLabel.ff_AlignVertical(type: ff_AlignType.BottomLeft, referView: topView, size: nil, offset: CGPoint(x: HMStatusCellMargin, y: HMStatusCellMargin))
+        
         //4. 配图视图
-        
-        let cons = statusPicture.ff_AlignVertical(type: ff_AlignType.BottomLeft, referView: contentLabel, size: CGSize(width: HMStatusPictureMaxWith, height: HMStatusPictureMaxWith), offset: CGPoint(x: 0, y: HMStatusPictureItemMargin))
-        
-        pictureViewWidthCons = statusPicture.ff_Constraint(cons, attribute: NSLayoutAttribute.Width)
-        pictureViewHeighthCons = statusPicture.ff_Constraint(cons, attribute: NSLayoutAttribute.Height)
-        
-        
+//        let cons = statusPicture.ff_AlignVertical(type: ff_AlignType.BottomLeft, referView: contentLabel, size: CGSize(width: HMStatusPictureMaxWith, height: HMStatusPictureMaxWith), offset: CGPoint(x: 0, y: HMStatusPictureItemMargin))
+//        pictureViewWidthCons = statusPicture.ff_Constraint(cons, attribute: NSLayoutAttribute.Width)
+//        pictureViewHeighthCons = statusPicture.ff_Constraint(cons, attribute: NSLayoutAttribute.Height)
+//        pictureViewTopCons = statusPicture.ff_Constraint(cons, attribute: NSLayoutAttribute.Top)
+//        
         // 5. 底部视图
         bottomView.ff_AlignVertical(type: ff_AlignType.BottomLeft, referView: statusPicture, size: CGSize(width: with, height: 44), offset: CGPoint(x: -HMStatusCellMargin, y: HMStatusCellMargin))
      
@@ -102,13 +130,13 @@ class StatusCell: UITableViewCell {
     private lazy var topView:StatusCellTopView = StatusCellTopView()
     
     //2. 文本标签
-    private lazy var contentLabel:UILabel = UILabel(title: nil, color: UIColor.grayColor() , fonSize: 15 ,layoutWith:(UIScreen.mainScreen().bounds.width - HMStatusCellMargin * 2))
+    lazy var contentLabel:UILabel = UILabel(title: nil, color: UIColor.grayColor() , fonSize: 15 ,layoutWith:(UIScreen.mainScreen().bounds.width - HMStatusCellMargin * 2))
     
     //3. 配图视图
-    private lazy var statusPicture:StatusPictureView = StatusPictureView()
+    lazy var statusPicture:StatusPictureView = StatusPictureView()
     
     // 4.底部视图
-    private lazy var bottomView:StatusCellBottomView = StatusCellBottomView()
+    lazy var bottomView:StatusCellBottomView = StatusCellBottomView()
     
 }
 

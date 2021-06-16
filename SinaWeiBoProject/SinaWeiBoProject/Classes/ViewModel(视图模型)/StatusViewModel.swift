@@ -8,10 +8,34 @@
 
 import UIKit
 
+
+let HMNormalViewCellID = "HMNormalViewCellID"
+
+let HMStatusForWardCellID = "HMStatusForWardCellID"
+
 class StatusViewModel: NSObject {
     
     /// 微博对象
     var status:Status
+    
+ /// 当前模型 对应的行高 
+    var rowHeight:CGFloat = 0
+    
+    
+    var cellID:String{
+        return status.retweeted_status != nil ?  HMStatusForWardCellID : HMNormalViewCellID
+    }
+    
+    
+ /// 被转发的原创微博文字，格式：@作者：原文
+    var forwardText:String{
+    
+        let username = status.retweeted_status?.user?.name ?? ""
+        
+        let text = status.retweeted_status?.text ?? ""
+        
+        return "@\(username):\(text)"
+    }
     
     ///用户头像URL
     var userIconUrl:NSURL?{
@@ -35,6 +59,10 @@ class StatusViewModel: NSObject {
         return nil
     }
     
+    /// 如果是原创有图，在 pic_url 数组宏记录
+    /// 如果是“转发微博” 有图，在 retweeted_status.pic_url 数组中记录
+    /// 如果"转发微博" 有图，pic_url 数组中没有图
+    /// 被转发的原创微博对象
     /// 配图 梭路如图 URL 数组
     var thumbnailURLs:[NSURL]?
     
@@ -44,13 +72,14 @@ class StatusViewModel: NSObject {
         
         // 给缩略图 数组设置数组
         // 判断是否有图像
-        if status.pic_urls != nil{
+        // 如果是转发微博，取得 retweeted_status 的pic_urls 否则 直接取  pic_urls
+        
+        if let urls = (status.retweeted_status?.pic_urls != nil) ? status.retweeted_status?.pic_urls : status.pic_urls{
         
             thumbnailURLs = [NSURL]()
             
-            // 遍历数组，插入 URL 
-            for dict in status.pic_urls!{
-            
+            // 遍历数组，插入 URL
+            for dict in urls{
                 // 第一个 ! 确保字典中的 thumbnail_pic “key” 一定存在
                 // 第二个 ! 确保 后台返回的 URL 字符串 一定能创建出 URL  ，通常由后台返回的 URL 是添加过 百分号 转义的 ！
                 thumbnailURLs?.append(NSURL(string: dict["thumbnail_pic"]!)!)
@@ -60,10 +89,9 @@ class StatusViewModel: NSObject {
         super.init()
     }
     
-    
     // 在 StatusViewModel 中重写 description 方法，可以打印出里面的内容
     override var description:String{
-        return status.description //+ "缩略图 URL 数组\(thumbnailURLs)"
+        return status.description + "缩略图 URL 数组\(thumbnailURLs)"
     }
     
 }

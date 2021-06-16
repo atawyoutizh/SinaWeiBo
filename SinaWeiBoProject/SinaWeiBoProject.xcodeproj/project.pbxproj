@@ -13,6 +13,7 @@
 		4D6FDDA21BC79FB8009EA744 /* CommonTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FDDA11BC79FB8009EA744 /* CommonTools.swift */; settings = {ASSET_TAGS = (); }; };
 		4D6FDDA81BC7D307009EA744 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FDDA71BC7D307009EA744 /* OAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4D6FDDD41BC7D7C4009EA744 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FDDD31BC7D7C4009EA744 /* NetworkTools.swift */; settings = {ASSET_TAGS = (); }; };
+		4D749E371BCE401600EB1BD3 /* StatusForwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D749E361BCE401600EB1BD3 /* StatusForwardCell.swift */; settings = {ASSET_TAGS = (); }; };
 		4D77F1D41BCCA5C700883682 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77F1D31BCCA5C700883682 /* UIButton+Extension.swift */; settings = {ASSET_TAGS = (); }; };
 		4D7A43D71BCB9FEA002C60AB /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7A43D61BCB9FEA002C60AB /* UIView+AutoLayout.swift */; settings = {ASSET_TAGS = (); }; };
 		4D7A43D91BCBA202002C60AB /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7A43D81BCBA202002C60AB /* StatusListViewModel.swift */; settings = {ASSET_TAGS = (); }; };
@@ -42,6 +43,7 @@
 		4DCA98591BC2C46000DD29ED /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA98581BC2C46000DD29ED /* ProfileTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4DCA985B1BC2C46900DD29ED /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA985A1BC2C46900DD29ED /* Profile.storyboard */; settings = {ASSET_TAGS = (); }; };
 		4DCA985D1BC2CAE200DD29ED /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA985C1BC2CAE200DD29ED /* MainTabBar.swift */; settings = {ASSET_TAGS = (); }; };
+		4DCCFD0E1BCE875F00D4C8CB /* StatusNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCCFD0D1BCE875F00D4C8CB /* StatusNormalCell.swift */; settings = {ASSET_TAGS = (); }; };
 		FD52BFD2DAEA00FA978E20BA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0294AFB76E1D7A9A65DF8D16 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,7 @@
 		4D6FDDA11BC79FB8009EA744 /* CommonTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonTools.swift; path = ../../CommonTools.swift; sourceTree = "<group>"; };
 		4D6FDDA71BC7D307009EA744 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		4D6FDDD31BC7D7C4009EA744 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		4D749E361BCE401600EB1BD3 /* StatusForwardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusForwardCell.swift; sourceTree = "<group>"; };
 		4D77F1D31BCCA5C700883682 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		4D7A43D61BCB9FEA002C60AB /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		4D7A43D81BCBA202002C60AB /* StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		4DCA98581BC2C46000DD29ED /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4DCA985A1BC2C46900DD29ED /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4DCA985C1BC2CAE200DD29ED /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		4DCCFD0D1BCE875F00D4C8CB /* StatusNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNormalCell.swift; sourceTree = "<group>"; };
 		D065F32AD54749777CC17D25 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,10 +188,12 @@
 		4D7A43DC1BCBB881002C60AB /* StatusCell */ = {
 			isa = PBXGroup;
 			children = (
-				4D7A43DD1BCBB89E002C60AB /* StatusCellTopView.swift */,
-				4D7A43DF1BCBB8B3002C60AB /* StatusCellBottomView.swift */,
 				4D7A43E11BCBB8CF002C60AB /* StatusCell.swift */,
+				4DCCFD0D1BCE875F00D4C8CB /* StatusNormalCell.swift */,
+				4D749E361BCE401600EB1BD3 /* StatusForwardCell.swift */,
+				4D7A43DD1BCBB89E002C60AB /* StatusCellTopView.swift */,
 				4DA507CF1BCD1A4C00F4F787 /* StatusPictureView.swift */,
+				4D7A43DF1BCBB8B3002C60AB /* StatusCellBottomView.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 				4DAA32E61BC76D3200FEDDB4 /* VisitorLoginView.swift in Sources */,
 				4D6FDDA81BC7D307009EA744 /* OAuthViewController.swift in Sources */,
 				4D7A43E01BCBB8B3002C60AB /* StatusCellBottomView.swift in Sources */,
+				4DCCFD0E1BCE875F00D4C8CB /* StatusNormalCell.swift in Sources */,
 				4D7A43E51BCBC351002C60AB /* UILabel+Extension.swift in Sources */,
 				4D238D161BCA958600153FF8 /* WelcomeViewController.swift in Sources */,
 				4D6FDDA21BC79FB8009EA744 /* CommonTools.swift in Sources */,
@@ -552,6 +559,7 @@
 				4DC5E0AE1BCA534E00CB3A16 /* UserAccountViewModel.swift in Sources */,
 				4D7A43E21BCBB8CF002C60AB /* StatusCell.swift in Sources */,
 				4DCA98081BC2B6A000DD29ED /* AppDelegate.swift in Sources */,
+				4D749E371BCE401600EB1BD3 /* StatusForwardCell.swift in Sources */,
 				4DCA98591BC2C46000DD29ED /* ProfileTableViewController.swift in Sources */,
 				4D6FDDD41BC7D7C4009EA744 /* NetworkTools.swift in Sources */,
 				4D238D141BCA78D500153FF8 /* NewFeatureViewController.swift in Sources */,
@@ -690,6 +698,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				INFOPLIST_FILE = SinaWeiBoProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.apple.SinaWeiBoProject;
@@ -704,6 +713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				INFOPLIST_FILE = SinaWeiBoProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.apple.SinaWeiBoProject;
